@@ -1,0 +1,64 @@
+﻿
+@*@model GopiVemuriMVC.Models.OrderMDL
+
+
+@{
+    ViewBag.Title = "CreateOrder";
+    Layout = "~/Views/Shared/_GopiLayout.cshtml";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Create New Order</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("CreateOrder", "Order", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.OrderName, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.OrderName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.OrderName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Images, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Images, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Images, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Available, new { @class = "form-label" })
+                            @Html.EditorFor(model => model.Available, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Available, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-dark w-50">Create</button>
+                        </div>
+
+                    }
+                    <div>
+                        @Html.ActionLink("Back to List", "Order")
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>*@
+
+
+
+

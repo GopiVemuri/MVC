@@ -1,0 +1,72 @@
+﻿@model GopiVemuriMVC.Models.LoginMDL
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Login Form -->
+                    @using (Html.BeginForm("Login", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @*<h4 class="text-center">Login</h4>*@
+                        @*<hr />*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "form-label" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "Enter your username" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mt-3">
+                            @Html.LabelFor(m => m.UserPassword, new { @class = "form-label" })
+                            @Html.PasswordFor(m => m.UserPassword, new { @class = "form-control", placeholder = "Enter your password" })
+                            @Html.ValidationMessageFor(m => m.UserPassword, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-dark w-100">Login</button>
+                        </div>
+
+                    }
+
+                    @using (Html.BeginForm("SignUp", "Login", FormMethod.Get, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group mt-4 text-center">
+                            <button type="submit" class="btn btn-primary w-50">Sign Up</button>
+                        </div>
+                    }
+                    @using (Html.BeginForm("ForgetPassword", "Login", FormMethod.Get, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group mt-4 text-center">
+                            <button type="submit" class="btn btn-primary w-50">Forgot Password</button>
+                        </div>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
